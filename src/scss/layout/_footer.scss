@@ -1,0 +1,51 @@
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+$icon-size: 30px;
+
+.footer-container {
+    @include properties-flex(row, center, center);
+    background-color: #333;
+    padding: 20px;
+    margin-top: auto;
+
+    a {
+        color: #fff;
+        font-size: $icon-size;
+        margin-right: 15px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    i.fab.fa-whatsapp:hover {
+        color: #25D366;
+    }
+
+    i.fab.fa-instagram:hover {
+        color: #E1306C;
+    }
+
+    i.fab.fa-twitter:hover {
+        color: #1DA1F2;
+    }
+
+    .contact-info {
+        @include properties-flex(row, center, center);
+        flex-wrap: wrap;
+        margin-right: 20px;
+
+        li {
+            @include properties-flex(row, center, center);
+            font-size: 16px;
+            color: #fff;
+            margin-right: 30px;
+
+            i {
+                margin-right: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+
+}

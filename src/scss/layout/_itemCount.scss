@@ -1,0 +1,64 @@
+$color_1: white;
+$font-family_1: sans-serif;
+$background-color_1: white;
+$background-color_2: #ddd;
+$background-color_3: #007bff;
+$background-color_4: #0062cc;
+
+.ItemCount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    font-family: $font-family_1;
+}
+
+.ItemCount-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.ItemCount-button {
+    background-color: $background-color_1;
+    border: none;
+    font-size: 10px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:nth-of-type(1) {
+        background-color: #f44336;
+        transform: scale(1.1);
+    }
+    &:hover:nth-of-type(2) {
+        background-color: #3e8e41;
+        transform: scale(1.1);
+    }
+}
+
+.ItemCount-quantity {
+    margin: 0;
+}
+
+.add-to-cart {
+    background-color: $background-color_3;
+    color: $color_1;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background-color: $background-color_4;
+    }
+}

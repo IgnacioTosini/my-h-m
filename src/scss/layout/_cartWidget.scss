@@ -1,0 +1,7 @@
+.container{
+    @include properties-flex(none, center, center);
+    &.modo-oscuro{
+        background-color: $background-dark-mode;
+		color: #f5f5f5;
+    }
+}

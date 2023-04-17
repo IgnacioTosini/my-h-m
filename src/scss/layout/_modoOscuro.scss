@@ -1,0 +1,28 @@
+.modo-oscuro-toggle {
+    position: relative;
+    top: 4%;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.modo-oscuro-toggle:hover {
+    transform: scale(1.1);
+}
+
+.modo-oscuro-toggle span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../components/DarkMode/assets/moon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modo-oscuro-toggle.modo-oscuro span {
+    background-image: url('../components/DarkMode/assets/sun.png');
+}

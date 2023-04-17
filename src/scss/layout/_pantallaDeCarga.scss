@@ -1,0 +1,41 @@
+$background-color_1: rgba(55, 69, 118, 255);
+
+@keyframes parpadeo {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.pantallaDeCarga {
+	@include properties-flex(none, center, center);
+	width: 100%;
+	height: 100vh;
+	background-color: $background-color_1;
+	animation: parpadeo 1s ease-in-out infinite;
+	img {
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.pantallaDeCarga {
+		img {
+			width: 70%;
+			max-width: 300px;
+		}
+	}
+}
+@media only screen and (max-width: 576px) {
+	.pantallaDeCarga {
+		img {
+			width: 80%;
+			max-width: 200px;
+		}
+	}
+}
