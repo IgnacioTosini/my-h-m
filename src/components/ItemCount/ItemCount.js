@@ -1,4 +1,5 @@
 import useItemCount from './useItemCount';
+import { Link } from 'react-router-dom';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const { quantity, increment, decrement } = useItemCount({ stock, initial });
@@ -11,9 +12,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <button className="ItemCount-button" onClick={increment}>+</button>
       </div>
       <div className="ItemCount-add-to-cart">
-        <button className="add-to-cart" onClick={() => onAdd(quantity)} disabled={!stock}>
+      <Link to='/cart' ><button className="add-to-cart" onClick={() => onAdd(quantity)} disabled={!stock}>
           Agregar al carrito
-        </button>
+        </button></Link>
       </div>
     </div>
   )

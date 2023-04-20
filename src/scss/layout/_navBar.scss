@@ -10,11 +10,7 @@ $background-color_3: #fff;
 	width: 100%;
 	background-color: $background-color_1;
 	padding: 1em;
-	display: flex;
-	flex-flow: row wrap;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: center;
+	@include properties-flex(row, space-between, center);
 	color: $color_1;
 
 	&.modo-oscuro {
@@ -31,9 +27,7 @@ $background-color_3: #fff;
 		display: flex;
 
 		.buscador {
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			@include properties-flex(row, center, center);
 			width: 100%;
 
 			input[type="text"] {
@@ -83,9 +77,7 @@ $background-color_3: #fff;
 }
 
 .Cabecera-ul {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+	@include properties-flex(row, flex-end, center);
 	list-style: none;
 	background-color: $background-color_1;
 }
@@ -122,9 +114,7 @@ $background-color_3: #fff;
 
 		.Cabecera-nav {
 			width: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include properties-flex(row, center, center);
 			height: 0vh;
 			opacity: 0;
 			overflow: hidden;

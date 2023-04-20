@@ -6,8 +6,10 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ProductsSection from "./components/ProductsSection/ProductsSection";
 import ProductDetailViewLink from './components/ProductDetailViewLink/ProductDetailViewLink';
 import Footer from './components/Footer/Footer';
+import Cart from './components/Cart/Cart';
 import '../src/css/style.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +20,7 @@ function App() {
     const horaActual = new Date().getHours();
 
     // si la hora actual es mayor o igual a las 20 (8pm), se activa el modo oscuro.
-    if (horaActual >= 20 || horaActual < 7) {
+    if (horaActual >= 19 || horaActual < 8) {
       setModoOscuro(true);
     }
 
@@ -35,6 +37,7 @@ function App() {
         </div>
       ) : (
         <BrowserRouter>
+        <CartProvider>
           <NavBar modoOscuro={modoOscuro} setModoOscuro={setModoOscuro} />
           <Banner modoOscuro={modoOscuro} />
           <ItemListContainer />
@@ -42,10 +45,11 @@ function App() {
             <Route exact path='/' element={<Home modoOscuro={modoOscuro} />}></Route>
             <Route exact path='/productsSection' element={<ProductsSection modoOscuro={modoOscuro} />}></Route>
             <Route exact path='/productDetailViewLink/:id' element={<ProductDetailViewLink modoOscuro={modoOscuro} />}></Route>
-            {/* <Route exact path='/ProductsSection' element={<ProductsSection />}></Route> */}
+            <Route exact path='/cart' element={<Cart modoOscuro={modoOscuro} />}></Route>
             <Route exact path='*' element={<h1>404-NOT-FOUND</h1>}></Route>
           </Routes>
           <Footer />
+          </CartProvider>
         </BrowserRouter>
       )}
     </div>

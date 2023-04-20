@@ -1,7 +1,13 @@
-.container{
+.containerCart{
+    position: relative;
     @include properties-flex(none, center, center);
-    &.modo-oscuro{
-        background-color: $background-dark-mode;
-		color: #f5f5f5;
+    left: 5%;
+    .totalProduct{
+        color: aliceblue;
+        list-style: none;
+    }
+
+    @media screen and (max-width:768px) {
+        left: 15%;
     }
 }

@@ -6,22 +6,18 @@ $background-color_3: #007bff;
 $background-color_4: #0062cc;
 
 .ItemCount {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include properties-flex(column, center, center);
     margin: 1rem;
     font-family: $font-family_1;
 }
 
 .ItemCount-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include properties-flex(row, space-between, center);
     border: 1px solid gray;
     border-radius: 5px;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    background-color: #e4d6d6;
 }
 
 .ItemCount-button {
@@ -38,6 +34,7 @@ $background-color_4: #0062cc;
         background-color: #f44336;
         transform: scale(1.1);
     }
+
     &:hover:nth-of-type(2) {
         background-color: #3e8e41;
         transform: scale(1.1);

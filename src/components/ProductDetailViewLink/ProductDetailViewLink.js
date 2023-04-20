@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from '../../context/CartContext';
 
 const ProductDetailViewLink = ({ modoOscuro }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+
+  const { addItem } = useContext(CartContext);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -15,6 +19,18 @@ const ProductDetailViewLink = ({ modoOscuro }) => {
 
   if (!product) {
     return <div>Cargando...</div>;
+  }
+
+  const handleOnAdd = (quantity) => {
+    setQuantity(quantity);
+    console.log(product)
+    const item = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.image
+    }
+    addItem(item, quantity)
   }
 
   return (
@@ -32,11 +48,16 @@ const ProductDetailViewLink = ({ modoOscuro }) => {
           <span className="product-details__currency">$</span>
           <span className="product-details__value">{product.price}</span>
         </div>
-        <ItemCount
-          initial={0}
-          stock={10}
-          onAdd={(quantity) => alert(`Cantidad agregada de ${product.title} es: ${quantity}`)}
-        />
+        <div>
+          {
+            quantity > 0 ? (
+              <ItemCount
+                initial={1}
+                stock={10}
+                onAdd={handleOnAdd} />
+            ) : null
+          }
+        </div>
       </div>
     </div>
   );

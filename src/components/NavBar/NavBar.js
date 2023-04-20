@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-/* import CartWidget from '../CartWidget/CartWidget'; */
+import CartWidget from '../CartWidget/CartWidget';
 import DarkMode from '../DarkMode/DarkMode';
 import { Link } from 'react-router-dom';
 
@@ -17,13 +17,13 @@ function NavBar({ modoOscuro, setModoOscuro }) {
 
   return (
     <header className={`Cabecera ${menu ? 'Active' : ''} ${modoOscuro ? "modo-oscuro" : ""}`}>
-      {/*<li><CartWidget /></li>*/}
       <div className='containerBuscador'>
         <DarkMode modoOscuro={modoOscuro} setModoOscuro={setModoOscuro} />
         <form className='buscador'>
           <input type="text" placeholder="Buscar productos..." />
           <button className='submit' type="submit">Buscar</button>
         </form>
+        <Link to={'/cart'}><CartWidget /></Link>
       </div>
       <button onClick={() => { toggleMenu(); handleClick(); }} className={`Cabecera-button ${abierto ? "menuAbierto" : ''}`}>
         <i className={`fa ${menu ? 'fa-times' : 'fa-bars'}`}></i>
