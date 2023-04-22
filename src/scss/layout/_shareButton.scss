@@ -1,0 +1,37 @@
+.social-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .facebook-button,
+  .twitter-button {
+    color: #fff;
+    background-color: #3b5998;
+    border-radius: 5px;
+    padding: 0.5rem;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-4px);
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 30px,
+        rgba(0, 0, 0, 0.2) 0px 5px 15px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    svg {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .facebook-button {
+    background-color: #3b5998;
+  }
+
+  .twitter-button {
+    background-color: #1da1f2;
+  }
+}

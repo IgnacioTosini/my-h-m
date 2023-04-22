@@ -1,0 +1,16 @@
+.rating-bar {
+    @include properties-flex(inline-flex, center, center);
+    font-size: 3rem;
+    width: 100%;
+
+    .star {
+        border: none;
+        cursor: pointer;
+        color: gray;
+        /* Establece el color gris por defecto */
+
+        &.selected {
+            color: gold;
+        }
+    }
+}

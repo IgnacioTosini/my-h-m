@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { DarkModeContext } from '../../context/DarkModeContext';
 
-const ProductsSection = ({ modoOscuro }) => {
+const ProductsSection = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -11,7 +13,7 @@ const ProductsSection = ({ modoOscuro }) => {
   }, []);
 
   return (
-    <div className={`products-section ${modoOscuro ? "modo-oscuro" : ""}`}>
+    <div className={`products-section ${darkMode ? "modo-oscuro" : ""}`}>
       {products.map((product) => (
         <div className="product" key={product.id}>
           <img src={product.image} alt={product.title} />

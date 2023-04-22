@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import ShareButton from '../ShareButton/ShareButton';
 
 const Footer = () => {
   return (
@@ -13,6 +14,7 @@ const Footer = () => {
         <a target="_blank" rel="noreferrer" href="https://www.whatsapp.com/"><i className="fab fa-whatsapp"></i></a>
         <a target="_blank" rel="noreferrer" href="https://www.instagram.com/"><i className="fab fa-instagram"></i></a>
         <a target="_blank" rel="noreferrer" href="https://twitter.com/"><i className="fab fa-twitter"></i></a>
+        <ShareButton />
       </div>
     </div>
   );

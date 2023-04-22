@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DarkModeContext } from '../../context/DarkModeContext';
 
-const ModoOscuro = ({ modoOscuro, setModoOscuro }) => {
-    const toggleModoOscuro = () => {
-        setModoOscuro(!modoOscuro);
-    };
+const ModoOscuro = () => {
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
     return (
         <button
-            className={`modo-oscuro-toggle ${modoOscuro ? "modo-oscuro" : ""}`}
-            onClick={toggleModoOscuro}
+            className={`modo-oscuro-toggle ${darkMode ? "modo-oscuro" : ""}`}
+            onClick={toggleDarkMode}
         >
             <span></span>
         </button>

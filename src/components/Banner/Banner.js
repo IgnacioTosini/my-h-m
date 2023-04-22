@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DarkModeContext } from '../../context/DarkModeContext';
 
-const Banner = ({ modoOscuro }) => {
+
+const Banner = () => {
+  const { darkMode } = useContext(DarkModeContext);
+
   return (
-    <div className={`banner ${modoOscuro ? "modo-oscuro" : ""}`}>
+    <div className={`banner ${darkMode ? "modo-oscuro" : ""}`}>
       <p className="banner-text">¡Envío gratuito en todos los pedidos!</p>
     </div>
   );

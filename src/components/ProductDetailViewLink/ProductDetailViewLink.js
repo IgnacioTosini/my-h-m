@@ -2,11 +2,16 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from '../../context/CartContext';
+import RatingBar from '../RatingBar/RatingBar';
+import { DarkModeContext } from '../../context/DarkModeContext';
+import ShareButton from '../ShareButton/ShareButton';
 
-const ProductDetailViewLink = ({ modoOscuro }) => {
+const ProductDetailViewLink = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [rating, setRating] = useState(0);
 
   const { addItem } = useContext(CartContext);
 
@@ -33,8 +38,12 @@ const ProductDetailViewLink = ({ modoOscuro }) => {
     addItem(item, quantity)
   }
 
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+
   return (
-    <div className={`product-details ${modoOscuro ? "modo-oscuro" : ''}`}>
+    <div className={`product-details ${darkMode ? "modo-oscuro" : ''}`}>
       <img
         className="product-details__image"
         src={product.image}
@@ -42,7 +51,10 @@ const ProductDetailViewLink = ({ modoOscuro }) => {
       />
       <div className="product-details__info">
         <h1 className="product-details__title">{product.title}</h1>
-        <p className="product-details__description">{product.description}</p>
+        <div className="product-details__description">
+          {product.description}
+          <RatingBar rating={rating} onRatingChange={handleRatingChange} />
+        </div>
         <div className="product-details__price-container">
           <p className="product-details__price">Precio:</p>
           <span className="product-details__currency">$</span>
@@ -58,6 +70,7 @@ const ProductDetailViewLink = ({ modoOscuro }) => {
             ) : null
           }
         </div>
+        <ShareButton url={`https://hym.netlify.app/productDetailViewLink/${product.id}`} />
       </div>
     </div>
   );

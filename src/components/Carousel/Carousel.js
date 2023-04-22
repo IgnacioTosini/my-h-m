@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
+import { DarkModeContext } from '../../context/DarkModeContext';
 
-const Carousel = ({ modoOscuro }) => {
+const Carousel = () => {
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const { darkMode } = useContext(DarkModeContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -71,27 +72,19 @@ const Carousel = ({ modoOscuro }) => {
 
   return (
     <>
-      <div className={`carousel ${modoOscuro ? "modo-oscuro" : ""}`}>
-        {selectedProduct ? (
-          <div>
-            <button onClick={() => setSelectedProduct(null)}>Volver</button>
-          </div>
-        ) : (
-          <>
-            <h2 className="carousel__title">Productos destacados</h2>
-            <Slider className="carousel__slider" {...settings} draggable={false}>
-              {products.map((product) => (
-                <div key={product.id} className="carousel__slide">
-                  <Link to={`/productDetailViewLink/${product.id}`}>
-                    <img className="carousel__image" src={product.image} alt={product.title} />
-                    <h3 className="carousel__subtitle">{product.title}</h3>
-                    <p className="carousel__price">{product.price}$</p>
-                  </Link>
-                </div>
-              ))}
-            </Slider>
-          </>
-        )}
+      <div className={`carousel ${darkMode ? "modo-oscuro" : ""}`}>
+        <h2 className="carousel__title">Productos destacados</h2>
+        <Slider className="carousel__slider" {...settings} draggable={false}>
+          {products.map((product) => (
+            <div key={product.id} className="carousel__slide">
+              <Link to={`/productDetailViewLink/${product.id}`}>
+                <img className="carousel__image" src={product.image} alt={product.title} />
+                <h3 className="carousel__subtitle">{product.title}</h3>
+                <p className="carousel__price">{product.price}$</p>
+              </Link>
+            </div>
+          ))}
+        </Slider>
       </div>
     </>
   );

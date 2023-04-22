@@ -360,7 +360,10 @@ a {
   border-radius: 5px;
   padding: 0.5rem;
   margin-bottom: 1rem;
-  background-color: #e4d6d6;
+  background-color: #dbdbdb;
+}
+.ItemCount-controls.modo-Oscuro {
+  background-color: #333;
 }
 
 .ItemCount-button {
@@ -383,6 +386,7 @@ a {
 }
 
 .ItemCount-quantity {
+  color: #333;
   margin: 0;
 }
 
@@ -577,6 +581,24 @@ a {
     font-size: 20px;
   }
 }
+.rating-bar {
+  display: flex;
+  flex-direction: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  width: 100%;
+}
+.rating-bar .star {
+  border: none;
+  cursor: pointer;
+  color: gray;
+  /* Establece el color gris por defecto */
+}
+.rating-bar .star.selected {
+  color: gold;
+}
+
 .cart-container {
   display: flex;
   flex-wrap: wrap;
@@ -718,6 +740,40 @@ a {
 }
 .cart-container .cart-summary button:hover {
   background-color: #ff1919;
+}
+
+.social-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.social-container .facebook-button,
+.social-container .twitter-button {
+  color: #fff;
+  background-color: #3b5998;
+  border-radius: 5px;
+  padding: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.social-container .facebook-button:hover,
+.social-container .twitter-button:hover {
+  cursor: pointer;
+  transform: translateY(-4px);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 30px, rgba(0, 0, 0, 0.2) 0px 5px 15px;
+}
+.social-container .facebook-button:focus,
+.social-container .twitter-button:focus {
+  outline: none;
+}
+.social-container .facebook-button svg,
+.social-container .twitter-button svg {
+  margin-right: 0.5rem;
+}
+.social-container .facebook-button {
+  background-color: #3b5998;
+}
+.social-container .twitter-button {
+  background-color: #1da1f2;
 }
 
 .footer-container {

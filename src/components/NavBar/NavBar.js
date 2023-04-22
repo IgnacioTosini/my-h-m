@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import CartWidget from '../CartWidget/CartWidget';
 import DarkMode from '../DarkMode/DarkMode';
 import { Link } from 'react-router-dom';
+import { DarkModeContext } from '../../context/DarkModeContext';
 
-function NavBar({ modoOscuro, setModoOscuro }) {
+function NavBar() {
+  const { darkMode } = useContext(DarkModeContext);
   const [menu, setMenu] = useState(false);
   const [abierto, setAbierto] = useState(false);
 
@@ -16,9 +18,9 @@ function NavBar({ modoOscuro, setModoOscuro }) {
   }
 
   return (
-    <header className={`Cabecera ${menu ? 'Active' : ''} ${modoOscuro ? "modo-oscuro" : ""}`}>
+    <header className={`Cabecera ${menu ? 'Active' : ''} ${darkMode ? "modo-oscuro" : ""}`}>
       <div className='containerBuscador'>
-        <DarkMode modoOscuro={modoOscuro} setModoOscuro={setModoOscuro} />
+        <DarkMode />
         <form className='buscador'>
           <input type="text" placeholder="Buscar productos..." />
           <button className='submit' type="submit">Buscar</button>
@@ -32,8 +34,7 @@ function NavBar({ modoOscuro, setModoOscuro }) {
         <ul className="Cabecera-ul">
           <li className="Cabecera-li"><Link to={'/'}>Inicio</Link></li>
           <li className="Cabecera-li"><Link to='/productsSection'>Productos</Link></li>
-          <li className="Cabecera-li"><a href="#a">Categoría</a></li>
-          <li className="Cabecera-li"><a href="#a">Categoría</a></li>
+          <li className="Cabecera-li"><a href="#a">Nosotros</a></li>
         </ul>
       </nav>
     </header>
