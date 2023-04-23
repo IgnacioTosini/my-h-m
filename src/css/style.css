@@ -214,6 +214,52 @@ a {
     left: 0%;
   }
 }
+.containerAbout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.containerAbout .about-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  height: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease-in-out;
+}
+.containerAbout .about-us .title {
+  color: #f7931e;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: color 0.5s ease-in-out;
+}
+.containerAbout .about-us .text {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.containerAbout .about-us .text:last-child {
+  animation: fade-out 0.8s ease-in-out;
+}
+.containerAbout .about-us:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+  /* Aumentamos el desenfoque en un hover */
+}
+.containerAbout .about-us:hover .title {
+  color: #4ac9f4;
+}
+
 .containerCart {
   position: relative;
   display: flex;
@@ -540,6 +586,9 @@ a {
   text-align: center;
   width: 90%;
 }
+.product-details .product-details__info .product-details__description .rating-bar {
+  width: fit-content;
+}
 .product-details .product-details__info .product-details__price-container {
   display: flex;
   flex-direction: row;
@@ -575,6 +624,16 @@ a {
   }
   .product-details .product-details__info .product-details__description {
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .product-details .product-details__info .product-details__description .containerRating {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
   .product-details .product-details__info .product-details__price-container {
     flex-direction: row;
@@ -593,7 +652,6 @@ a {
   justify-content: center;
   align-items: center;
   font-size: 3rem;
-  width: 100%;
 }
 .rating-bar .star {
   border: none;

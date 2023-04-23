@@ -10,6 +10,7 @@ import ProductsSection from "./components/ProductsSection/ProductsSection";
 import ProductDetailViewLink from './components/ProductDetailViewLink/ProductDetailViewLink';
 import Footer from './components/Footer/Footer';
 import Cart from './components/Cart/Cart';
+import AboutUs from './components/AboutUs/AboutUs';
 
 // Importar proveedores de contexto
 import { CartProvider } from './context/CartContext';
@@ -56,6 +57,7 @@ function App() {
                 <Route exact path='/productsSection' element={<ProductsSection />}></Route>
                 <Route exact path='/productDetailViewLink/:id' element={<ProductDetailViewLink />}></Route>
                 <Route exact path='/cart' element={<Cart />}></Route>
+                <Route exact path='/aboutUs' element={<AboutUs />}></Route>
                 {/* Manejar rutas inválidas */}
                 <Route path='*' element={<h1>404-NOT-FOUND</h1>}></Route>
               </Routes>

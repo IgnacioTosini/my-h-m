@@ -35,7 +35,7 @@ function NavBar() {
         <ul className="Cabecera-ul">
           <li className="Cabecera-li"><Link to={'/'}>Inicio</Link></li>
           <li className="Cabecera-li"><Link to='/productsSection'>Productos</Link></li>
-          <li className="Cabecera-li"><a href="#a">Nosotros</a></li>
+          <li className="Cabecera-li"><Link to={'/aboutUs'}>Nosotros</Link></li>
         </ul>
       </nav>
     </header>

@@ -69,6 +69,10 @@ $colorTextModoOscuro: #bbbbbb;
       line-height: 1.5;
       text-align: center;
       width: 90%;
+
+      .rating-bar{
+        width: fit-content;
+      }
     }
 
     .product-details__price-container {
@@ -108,6 +112,10 @@ $colorTextModoOscuro: #bbbbbb;
 
       .product-details__description {
         text-align: left;
+        @include properties-flex(column, center,center);
+        .containerRating{
+          @include properties-flex(row, center,center);
+        }
       }
 
       .product-details__price-container {

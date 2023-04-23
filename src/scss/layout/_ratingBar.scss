@@ -1,7 +1,6 @@
 .rating-bar {
     @include properties-flex(inline-flex, center, center);
     font-size: 3rem;
-    width: 100%;
 
     .star {
         border: none;

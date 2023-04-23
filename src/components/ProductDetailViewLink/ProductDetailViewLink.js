@@ -62,7 +62,10 @@ const ProductDetailViewLink = () => {
         <h1 className="product-details__title">{product.title}</h1>
         <div className="product-details__description">
           {product.description}
+          <div className='containerRating'>
           <RatingBar rating={rating} onRatingChange={handleRatingChange} />
+          <p className='rate'>({product.rating.rate})</p>
+          </div>
         </div>
         <div className="product-details__price-container">
           <p className="product-details__price">Precio:</p>

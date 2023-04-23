@@ -1,0 +1,45 @@
+.containerAbout {
+    min-height: 100vh;
+    @include properties-flex(column, center, center);
+
+    .about-us {
+        @include properties-flex(column, space-evenly, center);
+        width: 90%;
+        max-width: 800px;
+        height: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.5s ease-in-out;
+
+        .title {
+            color: #f7931e;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: color 0.5s ease-in-out;
+        }
+
+        .text {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+
+            &:last-child {
+                animation: fade-out 0.8s ease-in-out;
+            }
+        }
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+
+            /* Aumentamos el desenfoque en un hover */
+            .title {
+                color: #4ac9f4;
+            }
+        }
+    }
+}
