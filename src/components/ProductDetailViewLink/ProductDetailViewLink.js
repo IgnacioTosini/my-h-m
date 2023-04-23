@@ -7,15 +7,20 @@ import { DarkModeContext } from '../../context/DarkModeContext';
 import ShareButton from '../ShareButton/ShareButton';
 
 const ProductDetailViewLink = () => {
+  // Se importan los contextos
   const { darkMode } = useContext(DarkModeContext);
   const { id } = useParams();
+
+  // Definición de estados del componente
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
 
+  // Funciones del contexto CartContext
   const { addItem } = useContext(CartContext);
 
   useEffect(() => {
+    // Solicita y actualiza la info del producto según el ID en la URL
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then(response => response.json())
       .then(setProduct)
@@ -27,28 +32,32 @@ const ProductDetailViewLink = () => {
   }
 
   const handleOnAdd = (quantity) => {
+    // Agrega artículos al carrito utilizando el contexto CartContext
     setQuantity(quantity);
-    console.log(product)
+
     const item = {
       id: product.id,
       title: product.title,
       price: product.price,
       image: product.image
     }
+
     addItem(item, quantity)
   }
 
   const handleRatingChange = (newRating) => {
+    // Actualiza el estado "rating" según la puntuación seleccionada
     setRating(newRating);
   };
 
   return (
+    // Renderiza la información del producto, incluyendo la imagen, título, descripción, precio,
+    // contador de artículos y barra de puntuación. También enlaza para compartir el producto.
     <div className={`product-details ${darkMode ? "modo-oscuro" : ''}`}>
       <img
         className="product-details__image"
         src={product.image}
-        alt={product.title}
-      />
+        alt={product.title} />
       <div className="product-details__info">
         <h1 className="product-details__title">{product.title}</h1>
         <div className="product-details__description">

@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 import { DarkModeContext } from '../../context/DarkModeContext';
 
 const ProductsSection = () => {
+  // Obtenemos el valor de darkMode desde el contexto de DarkModeContext
   const { darkMode } = useContext(DarkModeContext);
+
+  // Definimos un estado "products" para almacenar los productos obtenidos desde la API
   const [products, setProducts] = useState([]);
 
+  // Utilizamos useEffect para obtener los productos desde la API y almacenarlos en el estado "products"
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
 
+  // Devolvemos una sección que muestra los productos obtenidos
   return (
     <div className={`products-section ${darkMode ? "modo-oscuro" : ""}`}>
       {products.map((product) => (
