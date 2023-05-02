@@ -1,4 +1,4 @@
-import { createContext, useCallback, useState } from "react";
+import { createContext, useState } from "react";
 
 // Creamos el contexto
 export const CartContext = createContext({
@@ -67,15 +67,9 @@ export const CartProvider = ({ children }) => {
         return totalPrice.toFixed(2);
     };
 
-    // Definimos una función llamada "checkout" utilizando useCallback para procesar el pago y vaciar el carrito
-    const checkout = useCallback(() => {
-        alert('Pago exitoso'); // En este caso, se muestra un mensaje de alerta
-        clearCart();
-    }, []);
-
     // Devolvemos el proveedor de contexto con las funciones necesarias para manejar el carrito
     return (
-        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, increaseQuantity, decreaseQuantity, getTotalPrice, checkout }}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, increaseQuantity, decreaseQuantity, getTotalPrice }}>
             {children}
         </CartContext.Provider>
     )

@@ -10,8 +10,14 @@ $background-color-Black: #1e1e1e;
 		background-color: $background-color-Black;
 		color: #f5f5f5;
 	}
+	.banner-text {
+		font-size: 1.2rem;
+	}
+	.link{
+		list-style: none;
+		color: #1e1e1e;
+		text-decoration: none;
+		cursor: auto;
+	}
 }
 
-.banner-text {
-	font-size: 1.2rem;
-}

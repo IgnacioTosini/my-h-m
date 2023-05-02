@@ -1,10 +1,12 @@
 import Carousel from '../Carousel/Carousel';
+import ImageGallery from '../ImageGallery/ImageGallery';
 
-const Home = ({modoOscuro}) => {
+const Home = () => {
     return (
-        <div className={`App ${modoOscuro ? "modo-oscuro" : ""}`}>
-            <Carousel modoOscuro={modoOscuro} />
-        </div>
+        <>
+            <Carousel/>
+            <ImageGallery />
+        </>
     )
 }
 

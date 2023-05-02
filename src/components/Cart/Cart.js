@@ -2,10 +2,11 @@
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { DarkModeContext } from '../../context/DarkModeContext';
+import { Link } from 'react-router-dom';
 
 function Cart() {
     // Uso de useContext para obtener datos del contexto del carrito y del modo oscuro
-    const { cart, clearCart, removeItem, increaseQuantity, decreaseQuantity, getTotalPrice, checkout } = useContext(CartContext);
+    const { cart, clearCart, removeItem, increaseQuantity, decreaseQuantity, getTotalPrice } = useContext(CartContext);
     const { darkMode } = useContext(DarkModeContext);
 
     return (
@@ -47,7 +48,15 @@ function Cart() {
                 </div>
                 {/* Dos botones: uno para vaciar el carrito y otro para pagar */}
                 <button onClick={() => { if (cart.length > 0) { clearCart(); } }}>Vaciar Carrito</button>
-                <button onClick={() => { if (cart.length > 0) { checkout(); } }}>Pagar</button>
+                <Link to={'/checkout'}>
+                    <button onClick={(e) => {
+                        if (cart.length > 0) {
+                            // no hacer nada y dejar que el enlace navegue a /checkout
+                        } else {
+                            e.preventDefault();
+                        }
+                    }}>CheckOut</button>
+                </Link>
             </div>
         </div>
     );

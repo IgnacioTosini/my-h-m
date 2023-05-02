@@ -2,26 +2,25 @@ import React, { useState, useEffect, useContext } from 'react';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../../context/DarkModeContext';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../FireBaseEcommerce/database';
 
 const Carousel = () => {
-  // Se define el estado para almacenar los productos obtenidos de la API de fakestoreapi.com
+  // Se define el estado para almacenar los productos obtenidos de la DB
   const [products, setProducts] = useState([]);
   // Se utiliza el hook useContext para acceder al valor de "darkMode" dentro del contexto "DarkModeContext"
   const { darkMode } = useContext(DarkModeContext);
   // En un efecto que se ejecuta solo una vez al cargar el componente,
-  // se realiza una petición HTTP a la API de fakestoreapi.com para obtener los productos y actualizar el estado "products"
+  // se realiza una petición HTTP a la DB para obtener los productos y actualizar el estado "products"
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('https://fakestoreapi.com/products');
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchProducts();
+    const getProducts = async () => {
+      const productsCollection = collection(db, "products");
+      const productsDocsRef = await getDocs(productsCollection);
+      const productDocs = productsDocsRef.docs;
+      const products = productDocs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      setProducts(products);
+    }
+    getProducts();
   }, []);
 
   // Se definen las opciones de configuración para el componente Slider de react-slick
@@ -86,7 +85,7 @@ const Carousel = () => {
             <div key={product.id} className="carousel__slide">
               {/* Al hacer clic en el producto se redirige a la página de detalles del producto */}
               <Link to={`/productDetailViewLink/${product.id}`}>
-                <img className="carousel__image" src={product.image} alt={product.title} />
+                <img className="carousel__image" src={product.imageURL} alt={product.title} />
                 <h3 className="carousel__subtitle">{product.title}</h3>
                 <p className="carousel__price">{product.price}$</p>
               </Link>

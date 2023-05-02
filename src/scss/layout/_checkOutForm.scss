@@ -1,0 +1,94 @@
+// Variables para los colores
+$color-white: #fff;
+$color-black: #000;
+$color-grey: #bbb;
+$color-dark-grey: #666;
+$color-primary: #007bff;
+
+.containerCheckOutForm {
+    min-height: 100vh;
+    @include properties-flex(column, center, center);
+
+    &.dark-mode {
+        background-color: #333;
+        color: white;
+
+        .checkout-form {
+            background-color: #535353;
+        }
+    }
+
+    .checkout-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        width: 100%;
+        max-width: 600px;
+        margin: 5% auto;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .form-label {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .form-input {
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+        margin-top: 8px;
+    }
+
+    .form-button {
+        background-color: #0070f3;
+        color: white;
+        font-size: 16px;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        margin-top: 16px;
+        cursor: pointer;
+    }
+
+    .form-button:hover {
+        background-color: #0058c1;
+    }
+}
+
+// Estilos para el mensaje de loading
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $color-white;
+    font-size: 1.5rem;
+    color: $color-grey;
+}
+
+// Estilos para el mensaje de orderId
+.success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $color-white;
+    font-size: 2rem;
+    color: $color-dark-grey;
+    text-align: center;
+
+    // Estilos responsive para pantallas pequeñas
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,64 @@
+@keyframes image {
+    0% {
+        transform: perspective(30000px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(30000px) rotateY(360deg);
+    }
+}
+
+.containerCarousel3d {
+    &.modo-oscuro {
+        background-color: #333;
+
+        h2 {
+            color: #f5f5f5;
+        }
+
+        .carousel3d {
+            .containerImg {
+                filter: brightness(0.75);
+            }
+        }
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .carousel3d {
+        position: relative;
+        width: 80%;
+        padding-bottom: calc(3 / 4 * 80%);
+        top: -6em;
+        left: 10%;
+        transform-style: preserve-3d;
+        transform-origin: center;
+        animation: image 20s linear infinite;
+
+        .containerImg {
+            position: absolute;
+            width: 50%;
+            height: 70%;
+            background: var(--img);
+            background-size: cover;
+            top: 25%;
+            left: 25%;
+            transform: rotateY(calc(var(--i) * 90deg)) translateZ(calc(15rem + 15.625vw));
+            transform-origin: center;
+            border-radius: 5%;
+
+            @media (max-width: 768px) {
+                transform: rotateY(calc(var(--i) * 90deg)) translateZ(calc(5rem + 15.625vw));
+            }
+        }
+
+        @media (max-width: 768px) {
+            position: relative;
+            width: 80%;
+            padding-bottom: calc(3 / 4 * 80%);
+            top: -1em;
+        }
+    }
+}

@@ -2,6 +2,14 @@
     min-height: 100vh;
     @include properties-flex(column, center, center);
 
+    &.modo-oscuro{
+        background-color: #333;
+        .about-us{
+            background-color: #333;
+            color: #fff;
+        }
+    }
+
     .about-us {
         @include properties-flex(column, space-evenly, center);
         width: 90%;
