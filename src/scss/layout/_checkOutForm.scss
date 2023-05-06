@@ -74,6 +74,10 @@ $color-primary: #007bff;
     background-color: $color-white;
     font-size: 1.5rem;
     color: $color-grey;
+
+    &.modo-oscuro {
+        background-color: #333;
+    }
 }
 
 // Estilos para el mensaje de orderId
@@ -86,6 +90,11 @@ $color-primary: #007bff;
     font-size: 2rem;
     color: $color-dark-grey;
     text-align: center;
+
+    &.modo-oscuro {
+        background-color: #333;
+        color: #ccc;
+    }
 
     // Estilos responsive para pantallas pequeñas
     @media (max-width: 768px) {

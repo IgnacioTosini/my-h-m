@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Proyecto en React para Coderhouse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue creado como parte de un curso de Coderhouse y se puede encontrar en [hym.netlify.app](https://hym.netlify.app). Está construido utilizando React y consta de varios componentes que se describen a continuación.
 
-## Available Scripts
+## Componentes
 
-In the project directory, you can run:
+### App
+En este componente, se utiliza BrowserRouter para dirigir al usuario hacia distintos componentes a través de la navegación. Los componentes que se incluyen son: Home, Product Seccion, Nosotros, Cart y ProductManagementPage.
 
-### `npm start`
+### Home
+Este componente contiene un carousel que muestra todos los productos disponibles y una galería de imágenes en formato 3D. También incluye el footer en la parte inferior de la página.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Navbar
+Este componente siempre está visible y contiene tres links llamados Inicio, Productos y Nosotros. Además, hay una imagen de un carrito que lleva al usuario a la lista de los productos seleccionados. El navbar también incluye un icono que permite cambiar los estilos de la página de claro a oscuro y viceversa.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Product Seccion
+Este componente muestra todos los productos disponibles con sus respectivos detalles. Al hacer clic en uno de los productos, el usuario es dirigido al ProductDetailViewLink.
 
-### `npm test`
+### ProductDetailViewLink
+Este componente muestra todos los detalles de un producto elegido, así como la opción de agregarlo al carrito con la cantidad deseada.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Cart
+Este componente es el carrito donde se muestran todos los productos seleccionados por el usuario para revisar lo elegido. Incluye diversas opciones, incluyendo un botón para realizar el check-out.
 
-### `npm run build`
+### Checkout
+Este componente pide al usuario que proporcione su nombre, teléfono y correo electrónico para crear una orden de compra, que se mostrará en pantalla después de cargarla en Firebase.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Nosotros
+Este componente presenta una carta de presentación personal del creador del proyecto, junto con algunos datos relevantes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### ProductManagementPage
+Este componente está diseñado para el administrador del e-commerce y permite agregar, buscar y ver los productos en el inventario.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Conclusión
+En resumen, este proyecto de React para Coderhouse consta de varios componentes que interactúan entre sí para crear un e-commerce funcional. Entre los aspectos destacados se incluyen la navegación a través de BrowserRouter, el carrito de compras y la gestión de productos utilizando FireBase. Este proyecto se puede encontrar en [hym.netlify.app](https://hym.netlify.app).

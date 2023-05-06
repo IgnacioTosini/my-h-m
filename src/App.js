@@ -13,6 +13,10 @@ import Cart from './components/Cart/Cart';
 import CheckOut from './components/CheckOut/CheckOut';
 import AboutUs from './components/AboutUs/AboutUs';
 import AddProductForm from './components/AddProductForm/AddProductForm';
+import ProductManagementPage from './components/ProductManagementPage/ProductManagementPage';
+import SearchProductForm from './components/SearchProductForm/SearchProductForm';
+import EditProductForm from './components/EditProductForm/EditProductForm';
+import ViewProduct from './components/ViewProduct/ViewProduct';
 
 // Importar proveedores de contexto
 import { CartProvider } from './context/CartContext';
@@ -61,7 +65,11 @@ function App() {
                 <Route exact path='/cart' element={<Cart />}></Route>
                 <Route exact path='/aboutUs' element={<AboutUs />}></Route>
                 <Route exact path='/checkout' element={<CheckOut />}></Route>
-                <Route exact path='/addproduct' element={<AddProductForm />}></Route>
+                <Route exact path='/productmanagementpage' element={<ProductManagementPage />}></Route>
+                <Route exact path='/addproductform' element={<AddProductForm />}></Route>
+                <Route exact path='/searchproductform' element={<SearchProductForm />}></Route>
+                <Route exact path='/editproductform/:id' element={<EditProductForm />}></Route>
+                <Route exact path='/viewproduct' element={<ViewProduct />}></Route>
                 {/* Manejar rutas inválidas */}
                 <Route path='*' element={<h1>404-NOT-FOUND</h1>}></Route>
               </Routes>

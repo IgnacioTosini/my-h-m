@@ -1,53 +1,66 @@
 import { useState, useContext } from "react";
 import { db } from "../FireBaseEcommerce/database";
-import CheckoutForm from '../CheckoutForm/CheckoutForm';
-import { CartContext } from '../../context/CartContext';
-import { collection, addDoc, Timestamp, doc, updateDoc } from 'firebase/firestore';
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { CartContext } from "../../context/CartContext";
+import { collection, addDoc, doc, updateDoc, getDoc } from "firebase/firestore";
+import { DarkModeContext } from '../../context/DarkModeContext';
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
-    const [orderId, setOrderId] = useState('');
+    const [orderId, setOrderId] = useState("");
+    const { darkMode } = useContext(DarkModeContext);
     const { cart, getTotalPrice, clearCart } = useContext(CartContext);
-
     const createOrder = async ({ name, phone, email }) => {
-        setLoading(true)
+        setLoading(true);
+
         try {
             // Creamos la orden
             const order = {
                 buyer: { name, phone, email },
                 items: cart,
                 total: getTotalPrice(),
-                date: new Date()
-            }
+                date: new Date(),
+            };
             const orderCollection = collection(db, "orders");
             const docRef = await addDoc(orderCollection, order);
             setOrderId(docRef.id);
-            // Actualizamos la cantidad de stock en Firebase
-            const productsRef = doc(db, "products", cart);
+
             for (const item of cart) {
-                updateDoc(productsRef, {
-                    stock: item.product.stock - item.quantity // Restamos la cantidad comprada al stock actual
-                });
+                const productId = item.id;
+                if (productId) {
+                    const productRef = doc(db, "products", productId);
+                    try {
+                        // Espera a que se recupere la información del producto
+                        const response = await getDoc(productRef);
+                        const data = response.data();
+                        const productAdapted = { ...data, id: response.id };
+                        // Actualiza el stock del producto adaptado
+                        await updateDoc(productRef, {
+                            stock: productAdapted.stock - item.quantity,
+                        });
+                    } catch (error) {
+                        console.error("Error actualizando stock:", error);
+                    }
+                }
             }
+
             clearCart();
         } catch (error) {
             console.log(error);
         } finally {
             setLoading(false);
         }
-    }
+    };
 
     if (loading) {
-        return <h1 className="loading">Se está generando su orden...</h1>
+        return <h1 className={`loading ${darkMode ? "modo-oscuro" : ''}`}>Se está generando su orden...</h1>;
     }
 
     if (orderId) {
-        return <h1 className="success">El id de su orden es: {orderId}</h1>
+        return <h1 className={`success ${darkMode ? "modo-oscuro" : ''}`}>El id de su orden es: {orderId}</h1>;
     }
 
-    return (
-        <CheckoutForm onConfirm={createOrder} />
-    );
-}
+    return <CheckoutForm onConfirm={createOrder} />;
+};
 
 export default Checkout;

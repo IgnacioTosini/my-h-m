@@ -25,10 +25,13 @@ const ProductDetailViewLink = () => {
   useEffect(() => {
     setLoading(true)
     const docRef = doc(db, 'products', id)
+    console.log(docRef)
+    console.log(id)
     getDoc(docRef)
       .then(response => {
         const data = response.data()
-        const productAdapted = { id: response.id, ...data }
+        console.log(data)
+        const productAdapted = {...data, id: response.id }
         setProduct(productAdapted)
       })
       .catch(error => {
@@ -39,13 +42,14 @@ const ProductDetailViewLink = () => {
       })
   }, [id])
 
-  if (!product) {
-    return <div className="loading-screen">
-    {/* Mostrar un spinner para indicar que la aplicación está cargando */}
-    <img src="../img/logoE-commerce_.png" alt="Loading" />
-  </div>
+  if (product === null && loading === true) {
+    return (
+      <div className="loading-screen">
+        {/* Mostrar un spinner para indicar que la aplicación está cargando */}
+        <img src="../img/logoE-commerce_.png" alt="Loading" />
+      </div>
+    )
   }
-
   const handleOnAdd = (quantity) => {
     // Agrega artículos al carrito utilizando el contexto CartContext
     setQuantity(quantity);

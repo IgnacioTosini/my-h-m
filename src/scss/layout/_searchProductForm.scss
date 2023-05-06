@@ -1,0 +1,44 @@
+.search-product-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+
+    &.modo-oscuro {
+        background-color: #333;
+
+        label {
+            color: #ddd;
+        }
+
+        button {
+            &:hover {
+                background-color: #ddd;
+            }
+        }
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    input[type="text"] {
+        font-size: 16px;
+        padding: 5px 10px;
+        margin: 10px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 5px 10px;
+        margin: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+}

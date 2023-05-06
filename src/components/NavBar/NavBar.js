@@ -3,10 +3,9 @@ import CartWidget from '../CartWidget/CartWidget';
 import DarkMode from '../DarkMode/DarkMode';
 import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../../context/DarkModeContext';
-import SearchBar from '../SearchBar/SearchBar';
+/* import SearchBar from '../SearchBar/SearchBar'; */
 
-function NavBar() {
-
+const NavBar = () => {
   const { darkMode } = useContext(DarkModeContext); // Obtenemos el valor actual del modo oscuro desde el contexto
   const [menu, setMenu] = useState(false); // Creamos un estado local para el menú y lo inicializamos en falso
   const [abierto, setAbierto] = useState(false); // Creamos un estado local para la apertura y lo inicializamos en falso
@@ -23,7 +22,7 @@ function NavBar() {
     <header className={`Cabecera ${menu ? 'Active' : ''} ${darkMode ? "modo-oscuro" : ""}`}>
       <div className='containerBuscador'>
         <DarkMode />
-        <SearchBar />
+        {/* <SearchBar /> */}
         <Link to={'/cart'}><CartWidget /></Link>
         {/* Enlace al carrito con el componente CartWidget */}
       </div>

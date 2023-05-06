@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { addDoc, collection, doc, getDoc, setDoc } from 'firebase/firestore';
+import React, { useState, useEffect, useContext } from 'react';
+import { addDoc, collection, doc, getDoc, query, where, getDocs } from 'firebase/firestore';
+import { DarkModeContext } from '../../context/DarkModeContext';
 import { db } from '../FireBaseEcommerce/database';
 
 function AddProductForm() {
+    const { darkMode } = useContext(DarkModeContext);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [categoryId, setCategoryId] = useState('');
@@ -17,7 +19,7 @@ function AddProductForm() {
     }
 
     function handleIdChange(event) {
-        setId(event.target.value);
+        setId(parseInt(event.target.value));
     }
     function handleTitleChange(event) {
         setTitle(event.target.value);
@@ -28,7 +30,7 @@ function AddProductForm() {
     }
 
     function handleStockChange(event) {
-        setStock(event.target.value);
+        setStock(parseInt(event.target.value));
     }
 
     function handlePriceChange(event) {
@@ -39,8 +41,21 @@ function AddProductForm() {
         setImageURL(event.target.value);
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
+
+        // Verifica primero si el producto ya existe en la base de datos
+        const productCollection = collection(db, "products");
+        const duplicateQuery = query(productCollection,
+            where('categoryId', '==', categoryId),
+            where('id', '==', id),
+        );
+
+        const duplicateDocs = await getDocs(duplicateQuery);
+        if (!duplicateDocs.empty) {
+            alert('Este producto ya existe!');
+            return;
+        }
 
         // Agrupa todos los campos del formulario en un objeto 'product'
         const product = {
@@ -54,7 +69,6 @@ function AddProductForm() {
         };
 
         // Agrega el objeto 'product' como un nuevo documento en la colección 'products'
-        const productCollection = collection(db, "products");
         addDoc(productCollection, product)
             .then(() => {
                 console.log('Producto agregado correctamente.');
@@ -70,53 +84,6 @@ function AddProductForm() {
             .catch((error) => {
                 console.error('Error al agregar el producto: ', error);
             });
-    }
-
-    async function handleModify(event) {
-        event.preventDefault();
-
-        // Recupera el objeto 'product' existente para actualizarlo
-        const productRef = doc(db, "products", productId);
-        const productSnapshot = await getDoc(productRef);
-        const existingProduct = productSnapshot.data();
-
-        // Actualiza los campos de los estados que se han modificado
-        if (title !== '') {
-            existingProduct.title = title;
-        }
-        if (description !== '') {
-            existingProduct.description = description;
-        }
-        if (categoryId !== '') {
-            existingProduct.categoryId = categoryId;
-        }
-        if (id !== '') {
-            existingProduct.id = id;
-        }
-        if (price !== '') {
-            existingProduct.price = price;
-        }
-        if (stock !== '') {
-            existingProduct.stock = stock;
-        }
-        if (imageURL !== '') {
-            existingProduct.imageURL = imageURL;
-        }
-
-        // Actualiza el objeto 'product' en la colección 'products'
-        await setDoc(productRef, existingProduct);
-
-        console.log('Producto modificado correctamente.');
-
-        // Reinicia el estado local para limpiar el formulario
-        setTitle('');
-        setDescription('');
-        setPrice(0);
-        setStock(0);
-        setId(0);
-        setCategoryId('');
-        setImageURL('');
-        setProductId('');
     }
 
     useEffect(() => {
@@ -139,7 +106,7 @@ function AddProductForm() {
     }, [productId]);
 
     return (
-        <div className="add-product-form-container">
+        <div className={`add-product-form-container ${darkMode ? "modo-oscuro" : ''}`}>
             <form className="add-product-form" onSubmit={handleSubmit}>
                 <label>
                     CategoryId:
@@ -171,15 +138,6 @@ function AddProductForm() {
                 </label>
                 <button type="submit">Agregar producto</button>
             </form>
-            {productId && (
-                <form className="modify-product-form" onSubmit={handleModify}>
-                    <label>
-                        ID del producto a modificar:
-                        <input type="text" placeholder='ProductId' value={productId} onChange={(event) => setProductId(event.target.value)} />
-                    </label>
-                    <button type="submit">Modificar producto</button>
-                </form>
-            )}
         </div>
     );
 }

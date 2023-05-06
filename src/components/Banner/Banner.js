@@ -9,7 +9,7 @@ const Banner = () => {
   return (
     <div className={`banner ${darkMode ? "modo-oscuro" : ""}`}>
       <p className="banner-text">¡Envío gratuito en todos los pedidos</p>
-      <Link to={'/addproduct'}><p className="link">!</p></Link>
+      <Link to={'/productmanagementpage'}><p className="link">!</p></Link>
     </div>
   );
 };

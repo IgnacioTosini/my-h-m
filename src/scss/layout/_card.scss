@@ -14,6 +14,20 @@ $color_7: #5dfe00;
     box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
     margin: 40px;
 
+    &.modo-oscuro {
+        box-shadow: 2px 3px 5px rgb(192, 192, 192);
+
+        .content {
+            background-color: $color_1;
+            color: $color_2;
+
+            h4,
+            p {
+                color: #c5c5c5;
+            }
+        }
+    }
+
     .content {
         position: relative;
         z-index: 100;

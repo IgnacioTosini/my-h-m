@@ -4,7 +4,33 @@
     align-items: center;
     height: 100vh;
 
-    form {
+    &.modo-oscuro {
+        background-color: #333;
+
+        .add-product-form {
+            background-color: #333;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+            label {
+                color: #fff;
+            }
+
+            input[type="text"],
+            textarea,
+            input[type="number"],
+            input[type="url"] {
+                background-color: #000000;
+                color: #c9c9c9;
+            }
+
+            button[type="submit"] {
+                background-color: #777777;
+                color: #000000;
+            }
+        }
+    }
+
+    .add-product-form {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;

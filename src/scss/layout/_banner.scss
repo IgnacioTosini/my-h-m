@@ -9,6 +9,9 @@ $background-color-Black: #1e1e1e;
 	&.modo-oscuro {
 		background-color: $background-color-Black;
 		color: #f5f5f5;
+		.link{
+			color: #f5f5f5;
+		}
 	}
 	.banner-text {
 		font-size: 1.2rem;

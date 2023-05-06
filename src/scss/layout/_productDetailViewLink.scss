@@ -70,7 +70,7 @@ $colorTextModoOscuro: #bbbbbb;
       text-align: center;
       width: 90%;
 
-      .rating-bar{
+      .rating-bar {
         width: fit-content;
       }
     }
@@ -113,9 +113,10 @@ $colorTextModoOscuro: #bbbbbb;
 
       .product-details__description {
         text-align: left;
-        @include properties-flex(column, center,center);
-        .containerRating{
-          @include properties-flex(row, center,center);
+        @include properties-flex(column, center, center);
+
+        .containerRating {
+          @include properties-flex(row, center, center);
         }
       }
 
