@@ -31,7 +31,7 @@ const EditProductForm = () => {
             .catch(error => {
                 console.log(error)
             })
-    }, [id])
+    })
     async function handleUpdate(event) {
         event.preventDefault();
 

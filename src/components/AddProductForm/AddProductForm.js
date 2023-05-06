@@ -12,7 +12,7 @@ function AddProductForm() {
     const [price, setPrice] = useState(0);
     const [stock, setStock] = useState(0);
     const [imageURL, setImageURL] = useState('');
-    const [productId, setProductId] = useState('');
+    const [productId] = useState('');
 
     function handleCategoryIdChange(event) {
         setCategoryId(event.target.value);
