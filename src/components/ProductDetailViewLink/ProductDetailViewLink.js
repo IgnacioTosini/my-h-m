@@ -4,7 +4,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from '../../context/CartContext';
 /* import RatingBar from '../RatingBar/RatingBar'; */
 import { DarkModeContext } from '../../context/DarkModeContext';
-import ShareButton from '../ShareButton/ShareButton';
+/* import ShareButton from '../ShareButton/ShareButton'; */
 import { db } from '../FireBaseEcommerce/database'; // importamos db
 import { getDoc, doc } from "firebase/firestore";
 
