@@ -25,13 +25,10 @@ const ProductDetailViewLink = () => {
   useEffect(() => {
     setLoading(true)
     const docRef = doc(db, 'products', id)
-    console.log(docRef)
-    console.log(id)
     getDoc(docRef)
       .then(response => {
         const data = response.data()
-        console.log(data)
-        const productAdapted = {...data, id: response.id }
+        const productAdapted = { ...data, id: response.id }
         setProduct(productAdapted)
       })
       .catch(error => {
@@ -68,6 +65,7 @@ const ProductDetailViewLink = () => {
       // Actualiza el estado "rating" según la puntuación seleccionada
       setRating(newRating);
     }; */
+  console.log(product.id)
 
   return (
     // Renderiza la información del producto, incluyendo la imagen, título, descripción, precio,
@@ -100,7 +98,7 @@ const ProductDetailViewLink = () => {
             ) : null
           }
         </div>
-        <ShareButton url={`https://hym.netlify.app/productDetailViewLink/${product.id}`} />
+        {/* <ShareButton url={`https://hym.netlify.app/productDetailViewLink/${product.id}`} /> */}
       </div>
     </div>
   );

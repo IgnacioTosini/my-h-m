@@ -26,7 +26,7 @@ const Carousel = () => {
   // Se definen las opciones de configuración para el componente Slider de react-slick
   const settings = {
     infinite: true,
-    speed: 4000,
+    speed: 8000,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,

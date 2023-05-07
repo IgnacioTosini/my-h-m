@@ -6,12 +6,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAgVGbY3dRwrrQ9ITkcrxx_awEwhUkouKw",
-    authDomain: "hyme-commerce.firebaseapp.com",
-    projectId: "hyme-commerce",
-    storageBucket: "hyme-commerce.appspot.com",
-    messagingSenderId: "3372033545",
-    appId: "1:3372033545:web:7b4e424da05449a0e23ad8"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase

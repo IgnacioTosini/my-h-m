@@ -2,20 +2,20 @@ import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Importar componentes
-import Home from './components/Home/Home';
-import NavBar from './components/NavBar/NavBar';
-import Banner from './components/Banner/Banner';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ProductsSection from "./components/ProductsSection/ProductsSection";
-import ProductDetailViewLink from './components/ProductDetailViewLink/ProductDetailViewLink';
-import Footer from './components/Footer/Footer';
-import Cart from './components/Cart/Cart';
-import CheckOut from './components/CheckOut/CheckOut';
 import AboutUs from './components/AboutUs/AboutUs';
 import AddProductForm from './components/AddProductForm/AddProductForm';
-import ProductManagementPage from './components/ProductManagementPage/ProductManagementPage';
-import SearchProductForm from './components/SearchProductForm/SearchProductForm';
+import Banner from './components/Banner/Banner';
+import Cart from './components/Cart/Cart';
+import CheckOut from './components/CheckOut/CheckOut';
 import EditProductForm from './components/EditProductForm/EditProductForm';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
+import ProductDetailViewLink from './components/ProductDetailViewLink/ProductDetailViewLink';
+import ProductManagementPage from './components/ProductManagementPage/ProductManagementPage';
+import ProductsSection from "./components/ProductsSection/ProductsSection";
+import SearchProductForm from './components/SearchProductForm/SearchProductForm';
 import ViewProduct from './components/ViewProduct/ViewProduct';
 
 // Importar proveedores de contexto
@@ -60,15 +60,15 @@ function App() {
               <Routes>
                 {/* Establecer rutas para diferentes componentes */}
                 <Route exact path='/' element={<Home />}></Route>
-                <Route exact path='/productsSection' element={<ProductsSection />}></Route>
-                <Route exact path='/productDetailViewLink/:id' element={<ProductDetailViewLink />}></Route>
-                <Route exact path='/cart' element={<Cart />}></Route>
                 <Route exact path='/aboutUs' element={<AboutUs />}></Route>
-                <Route exact path='/checkout' element={<CheckOut />}></Route>
-                <Route exact path='/productmanagementpage' element={<ProductManagementPage />}></Route>
                 <Route exact path='/addproductform' element={<AddProductForm />}></Route>
-                <Route exact path='/searchproductform' element={<SearchProductForm />}></Route>
+                <Route exact path='/cart' element={<Cart />}></Route>
+                <Route exact path='/checkout' element={<CheckOut />}></Route>
                 <Route exact path='/editproductform/:id' element={<EditProductForm />}></Route>
+                <Route exact path='/productDetailViewLink/:id' element={<ProductDetailViewLink />}></Route>
+                <Route exact path='/productmanagementpage' element={<ProductManagementPage />}></Route>
+                <Route exact path='/productsSection' element={<ProductsSection />}></Route>
+                <Route exact path='/searchproductform' element={<SearchProductForm />}></Route>
                 <Route exact path='/viewproduct' element={<ViewProduct />}></Route>
                 {/* Manejar rutas inválidas */}
                 <Route path='*' element={<h1>404-NOT-FOUND</h1>}></Route>
