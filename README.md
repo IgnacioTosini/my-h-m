@@ -1,6 +1,6 @@
 # Proyecto en React para Coderhouse
 
-Este proyecto fue creado como parte de un curso de Coderhouse y se puede encontrar en [hym.netlify.app](https://hym.netlify.app). Está construido utilizando React y consta de varios componentes que se describen a continuación.
+Este proyecto fue creado como parte de un curso de Coderhouse y se puede encontrar en [hymreact.vercel.app](https://hymreact.vercel.app). Está construido utilizando React y consta de varios componentes que se describen a continuación.
 
 ## Componentes
 
