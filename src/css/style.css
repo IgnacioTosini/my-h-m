@@ -161,6 +161,12 @@ a {
 .banner .banner-text {
   font-size: 1.2rem;
 }
+.banner .link {
+  list-style: none;
+  color: #1e1e1e;
+  text-decoration: none;
+  cursor: auto;
+}
 
 .card {
   position: relative;
@@ -1441,10 +1447,5 @@ a {
 }
 .footer-container .contact-info li i {
   margin-right: 10px;
-  font-size: 20px;
-}
-.footer-container .pi {
-  position: absolute;
-  right: 10px;
   font-size: 20px;
 }/*# sourceMappingURL=style.css.map */

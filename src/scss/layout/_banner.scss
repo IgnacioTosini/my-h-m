@@ -1,20 +1,30 @@
 $color_1: #333;
 $background-color_1: #e0bc50;
 $background-color-Black: #1e1e1e;
+
 .banner {
 	background-color: $background-color_1;
 	color: $color_1;
 	@include properties-flex(none, center, center);
 	height: 50px;
+
 	&.modo-oscuro {
 		background-color: $background-color-Black;
 		color: #f5f5f5;
-		.link{
+
+		.link {
 			color: #f5f5f5;
 		}
 	}
+
 	.banner-text {
 		font-size: 1.2rem;
 	}
-}
 
+	.link {
+		list-style: none;
+		color: #1e1e1e;
+		text-decoration: none;
+		cursor: auto;
+	}
+}
