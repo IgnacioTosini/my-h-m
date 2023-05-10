@@ -7,7 +7,6 @@ import AddProductForm from './components/AddProductForm/AddProductForm';
 import Banner from './components/Banner/Banner';
 import Cart from './components/Cart/Cart';
 import CheckOut from './components/CheckOut/CheckOut';
-import EditProductForm from './components/EditProductForm/EditProductForm';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
@@ -64,7 +63,6 @@ function App() {
                 <Route exact path='/addproductform' element={<AddProductForm />}></Route>
                 <Route exact path='/cart' element={<Cart />}></Route>
                 <Route exact path='/checkout' element={<CheckOut />}></Route>
-                <Route exact path='/editproductform/:id' element={<EditProductForm />}></Route>
                 <Route exact path='/productDetailViewLink/:id' element={<ProductDetailViewLink />}></Route>
                 <Route exact path='/productmanagementpage' element={<ProductManagementPage />}></Route>
                 <Route exact path='/productsSection' element={<ProductsSection />}></Route>

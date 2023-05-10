@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
 @import '@fortawesome/fontawesome-free/css/all.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
 * {
   margin: 0;
   padding: 0;
@@ -159,12 +160,6 @@ a {
 }
 .banner .banner-text {
   font-size: 1.2rem;
-}
-.banner .link {
-  list-style: none;
-  color: #1e1e1e;
-  text-decoration: none;
-  cursor: auto;
 }
 
 .card {
@@ -846,7 +841,7 @@ a {
   .Cabecera .Cabecera-nav.isActive {
     position: relative;
     top: -1.5rem;
-    height: 21vh;
+    height: fit-content;
     opacity: 1;
   }
   .Cabecera .menuAbierto {
@@ -1132,23 +1127,6 @@ a {
   transform: scale(1.1);
 }
 
-.rating-bar {
-  display: flex;
-  flex-direction: inline-flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-}
-.rating-bar .star {
-  border: none;
-  cursor: pointer;
-  color: gray;
-  /* Establece el color gris por defecto */
-}
-.rating-bar .star.selected {
-  color: gold;
-}
-
 .buscador-container {
   position: relative;
   min-width: 200px;
@@ -1248,33 +1226,44 @@ a {
   align-items: center;
   gap: 1rem;
 }
+.social-container .whatsapp-button,
 .social-container .facebook-button,
 .social-container .twitter-button {
   color: #fff;
   background-color: #3b5998;
-  border-radius: 5px;
+  border-radius: 50%;
   padding: 0.5rem;
-  transition: all 0.3s ease-in-out;
+  font-size: 30px;
 }
-.social-container .facebook-button:hover,
-.social-container .twitter-button:hover {
-  cursor: pointer;
-  transform: translateY(-4px);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 30px, rgba(0, 0, 0, 0.2) 0px 5px 15px;
-}
+.social-container .whatsapp-button:focus,
 .social-container .facebook-button:focus,
 .social-container .twitter-button:focus {
   outline: none;
 }
-.social-container .facebook-button svg,
-.social-container .twitter-button svg {
+.social-container .whatsapp-button .fab,
+.social-container .facebook-button .fab,
+.social-container .twitter-button .fab {
   margin-right: 0.5rem;
+  font-size: 25px;
+  transition: all 0.3s ease-in-out;
+}
+.social-container .whatsapp-button .fab:hover,
+.social-container .facebook-button .fab:hover,
+.social-container .twitter-button .fab:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 .social-container .facebook-button {
-  background-color: #3b5998;
+  font-size: 30px;
 }
-.social-container .twitter-button {
-  background-color: #1da1f2;
+.social-container .facebook-button i.fab.fa-facebook:hover {
+  color: #2545d3;
+}
+.social-container .twitter-button i.fab.fa-twitter:hover {
+  color: #1DA1F2;
+}
+.social-container .whatsapp-button i.fab.fa-whatsapp:hover {
+  color: #25D366;
 }
 
 .view-product {
@@ -1435,10 +1424,11 @@ a {
 .footer-container .contact-info {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: none;
   align-items: center;
   flex-wrap: wrap;
   margin-right: 20px;
+  gap: 10px;
 }
 .footer-container .contact-info li {
   display: flex;
@@ -1451,5 +1441,10 @@ a {
 }
 .footer-container .contact-info li i {
   margin-right: 10px;
+  font-size: 20px;
+}
+.footer-container .pi {
+  position: absolute;
+  right: 10px;
   font-size: 20px;
 }/*# sourceMappingURL=style.css.map */

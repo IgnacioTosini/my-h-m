@@ -1,16 +1,17 @@
 import React from 'react';
-import { FacebookShareButton, TwitterShareButton } from 'react-share';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { WhatsappShareButton, FacebookShareButton, TwitterShareButton } from 'react-share';
 
 const ShareButton = ({ url }) => {
     return (
         <div className="social-container">
+            <WhatsappShareButton url={url} className="whatsapp-button">
+            <i className="fab fa-whatsapp"></i>
+            </WhatsappShareButton>
             <FacebookShareButton url={url} className="facebook-button">
-                <FontAwesomeIcon icon={faFacebook} />
+            <i className="fab fa-facebook"></i>
             </FacebookShareButton>
             <TwitterShareButton url={url} className="twitter-button">
-                <FontAwesomeIcon icon={faTwitter} />
+                <i className="fab fa-twitter"></i>
             </TwitterShareButton>
         </div>
     );
