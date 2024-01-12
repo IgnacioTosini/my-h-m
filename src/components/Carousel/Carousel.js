@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../../context/DarkModeContext';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../FireBaseEcommerce/database';
+/* import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../FireBaseEcommerce/database'; */
+import productsData from '../FireBaseEcommerce/productos.json'; // Importar el archivo JSON con los datos
 
 const Carousel = () => {
   // Se define el estado para almacenar los productos obtenidos de la DB
@@ -12,7 +13,7 @@ const Carousel = () => {
   const { darkMode } = useContext(DarkModeContext);
   // En un efecto que se ejecuta solo una vez al cargar el componente,
   // se realiza una petición HTTP a la DB para obtener los productos y actualizar el estado "products"
-  useEffect(() => {
+/*   useEffect(() => {
     const getProducts = async () => {
       const productsCollection = collection(db, "products");
       const productsDocsRef = await getDocs(productsCollection);
@@ -21,6 +22,11 @@ const Carousel = () => {
       setProducts(products);
     }
     getProducts();
+  }, []); */
+
+  useEffect(() => {
+    // En lugar de hacer una petición HTTP, simplemente usamos los datos del archivo JSON
+    setProducts(productsData.products);
   }, []);
 
   // Se definen las opciones de configuración para el componente Slider de react-slick
@@ -78,12 +84,9 @@ const Carousel = () => {
     <>
       <div className={`carousel ${darkMode ? "modo-oscuro" : ""}`}>
         <h2 className="carousel__title">Productos destacados</h2>
-        {/* Se utiliza el componente Slider de react-slick para mostrar los productos en un carousel */}
         <Slider className="carousel__slider" {...settings} draggable={false}>
-          {/* Por cada producto se genera un slide con sus datos */}
           {products.map((product) => (
             <div key={product.id} className="carousel__slide">
-              {/* Al hacer clic en el producto se redirige a la página de detalles del producto */}
               <Link to={`/productDetailViewLink/${product.id}`}>
                 <img className="carousel__image" src={product.imageURL} alt={product.title} />
                 <h3 className="carousel__subtitle">{product.title}</h3>

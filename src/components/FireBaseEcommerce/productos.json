@@ -1,0 +1,103 @@
+{
+    "products": [
+        {
+            "categoryId": "Shirts",
+            "description": "Cuervo que nos ve desde el infinito y nos protege",
+            "id": 11,
+            "imageURL": "https://i.postimg.cc/zGWVD324/categoria2-Remeras4.png",
+            "price": 200,
+            "stock": 124,
+            "title": "Cuervo Galactico"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "La tierra del Año 3000.",
+            "id": 4,
+            "imageURL": "https://i.postimg.cc/wBDg4wQT/remera4.png",
+            "price": 1300,
+            "stock": 6,
+            "title": "Remera Año 3000"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "Aliens haciéndose pasar por humanos.",
+            "id": 3,
+            "imageURL": "https://i.postimg.cc/LXz5fHbD/remera3.png",
+            "price": 550,
+            "stock": 0,
+            "title": "Remera Aliens"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "Montañas que se expanden a través del universo",
+            "id": 9,
+            "imageURL": "https://i.postimg.cc/Fs5pskTQ/categoria2-Remeras2.png",
+            "price": 1300,
+            "stock": 17,
+            "title": "Montañas craneales"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "Posible guerrero del futuro",
+            "id": 5,
+            "imageURL": "https://i.postimg.cc/mkKKGTjk/catergoria-Remeras2.png",
+            "price": 3000,
+            "stock": 2,
+            "title": "Remera Guerrera galactica"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "Palmeras de la India Marciana",
+            "id": 8,
+            "imageURL": "https://i.postimg.cc/xC37yGxM/categoria2-Remeras1.png",
+            "price": 700,
+            "stock": 40,
+            "title": "Palmeras"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "Rejuvenece a cualquiera que la toque",
+            "id": 10,
+            "imageURL": "https://i.postimg.cc/MGC5MczR/categoria2-Remeras3.png",
+            "price": 400,
+            "stock": 12,
+            "title": "Flor de la vida"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "Otra versión de una guerrera",
+            "id": 6,
+            "imageURL": "https://i.postimg.cc/WbQy6W1w/categoria-Remeras1.png",
+            "price": 90,
+            "stock": 70,
+            "title": "Guerrera Galáctica"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "El hombre descubriendo otros planetas.",
+            "id": 1,
+            "imageURL": "https://i.postimg.cc/pLHPCWY5/remera1.png",
+            "price": 300,
+            "stock": 0,
+            "title": "Remera Astronauta"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "La IA personificada como ser humano.",
+            "id": 2,
+            "imageURL": "https://i.postimg.cc/G3FTTQ0R/remera2.png",
+            "price": 1200,
+            "stock": 6,
+            "title": "La IA"
+        },
+        {
+            "categoryId": "Shirts",
+            "description": "Guerrera bajoTerra",
+            "id": 7,
+            "imageURL": "https://i.postimg.cc/5NCmSfG6/categoria-Remeras4.png",
+            "price": 800,
+            "stock": 3,
+            "title": "Guerra versión pelicula"
+        }
+    ]
+}
